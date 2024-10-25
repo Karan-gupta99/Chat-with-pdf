@@ -1,12 +1,12 @@
-import streamlit as st # type: ignore
-from dotenv import load_dotenv # type: ignore
-from PyPDF2 import PdfReader # type: ignore
-from langchain_huggingface import HuggingFaceEmbeddings # type: ignore
-from langchain_community.vectorstores import FAISS # type: ignore
-from langchain_groq import ChatGroq # type: ignore
-from langchain.text_splitter import CharacterTextSplitter # type: ignore
-from langchain.memory import ConversationBufferMemory # type: ignore
-from langchain.chains import ConversationalRetrievalChain # type: ignore
+import streamlit as st 
+from dotenv import load_dotenv 
+from PyPDF2 import PdfReader 
+from langchain_huggingface import HuggingFaceEmbeddings 
+from langchain_community.vectorstores import FAISS 
+from langchain_groq import ChatGroq 
+from langchain.text_splitter import CharacterTextSplitter 
+from langchain.memory import ConversationBufferMemory 
+from langchain.chains import ConversationalRetrievalChain 
 from htmlTemplates import css, bot_template, user_template
 
 def get_pdf_text(pdf_docs):
@@ -14,7 +14,7 @@ def get_pdf_text(pdf_docs):
     for pdf in pdf_docs:
         pdf_reader = PdfReader(pdf)
         for page in pdf_reader.pages:
-            text += page.extract_text() or ""  # Handle None text
+            text += page.extract_text() or ""  
     return text
 
 def get_text_chunks(text):
